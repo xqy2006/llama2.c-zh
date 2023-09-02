@@ -114,8 +114,8 @@ def pretokenize():
         print(f"Saved {tokenized_filename}")
 
     # iterate the shards and tokenize all of them one by one
-    data_dir_en = os.path.join(DATA_CACHE_DIR, "TinyStories_all_data-en")
-    data_dir_zh = os.path.join(DATA_CACHE_DIR, "TinyStories_all_data-zh")
+    data_dir_en = os.path.join(DATA_CACHE_DIR, "fictions")
+    data_dir_zh = os.path.join(DATA_CACHE_DIR, "fictions")
     shard_filenames_en = sorted(glob.glob(os.path.join(data_dir_en, "*.json")))
     shard_filenames_zh = sorted(glob.glob(os.path.join(data_dir_zh, "*.json")))
     shard_filenames = []
@@ -154,8 +154,8 @@ class PretokDataset(torch.utils.data.IterableDataset):
         rng = random.Random(seed)
         print(f"Created a PretokDataset with rng seed {seed}")
 
-        data_dir_en = os.path.join(DATA_CACHE_DIR, "TinyStories_all_data-en")
-        data_dir_zh = os.path.join(DATA_CACHE_DIR, "TinyStories_all_data-zh")
+        data_dir_en = os.path.join(DATA_CACHE_DIR, "fictions")
+        data_dir_zh = os.path.join(DATA_CACHE_DIR, "fictions")
         shard_filenames_en = sorted(glob.glob(os.path.join(data_dir_en, "*.bin")))
         shard_filenames_zh = sorted(glob.glob(os.path.join(data_dir_zh, "*.bin")))
         # train/test split. let's use only shard 0 for test split, rest train
