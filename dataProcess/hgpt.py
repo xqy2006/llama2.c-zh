@@ -59,8 +59,9 @@ def pretokenize():
     filename = "红楼梦.txt"
     #data_file = os.path.join(DATA_CACHE_DIR, filename)
     data_files = ["outdata0.txt","outdata1.txt","outdata2.txt","outdata3.txt","outdata4.txt","outdata5.txt","outdata6.txt","outdata7.txt","outdata8.txt","outdata9.txt",]
-    all_tokens = []
+    
     for data_file in data_files:
+        all_tokens = []
         data_file = os.path.join(DATA_CACHE_DIR, data_file)
         with open(data_file, "r") as f:
             for line in f:
