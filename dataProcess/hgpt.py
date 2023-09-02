@@ -61,6 +61,7 @@ def pretokenize():
     data_files = ["outdata0.txt","outdata1.txt","outdata2.txt","outdata3.txt","outdata4.txt","outdata5.txt","outdata6.txt","outdata7.txt","outdata8.txt","outdata9.txt",]
     all_tokens = []
     for data_file in data_files:
+        data_file = os.path.join(DATA_CACHE_DIR, filename)
         with open(data_file, "r") as f:
             for line in f:
                 text = line.strip()
