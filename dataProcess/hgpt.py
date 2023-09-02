@@ -57,18 +57,20 @@ def download():
 def pretokenize():
     enc = Tokenizer()
     filename = "红楼梦.txt"
-    data_file = os.path.join(DATA_CACHE_DIR, filename)
+    #data_file = os.path.join(DATA_CACHE_DIR, filename)
+    data_files = ["outdata0.txt","outdata1.txt","outdata2.txt","outdata3.txt","outdata4.txt","outdata5.txt","outdata6.txt","outdata7.txt","outdata8.txt","outdata9.txt",]
     all_tokens = []
-    with open(data_file, "r") as f:
-        for line in f:
-            text = line.strip()
-            tokens = enc.encode(text, bos=True, eos=False)
-            all_tokens.extend(tokens)
-    all_tokens = np.array(all_tokens, dtype=np.uint16)
-    print(f"Total tokens: {len(all_tokens)}")
-    with open(data_file.replace(".txt", ".bin"), "wb") as f:
-        f.write(all_tokens.tobytes())
-    print(f"Saved {data_file.replace('.txt', '.bin')}")
+    for data_file in data_files:
+        with open(data_file, "r") as f:
+            for line in f:
+                text = line.strip()
+                tokens = enc.encode(text, bos=True, eos=False)
+                all_tokens.extend(tokens)
+        all_tokens = np.array(all_tokens, dtype=np.uint16)
+        print(f"Total tokens: {len(all_tokens)}")
+        with open(data_file.replace(".txt", ".bin"), "wb") as f:
+            f.write(all_tokens.tobytes())
+        print(f"Saved {data_file.replace('.txt', '.bin')}")
     print("Done.")
 
 
