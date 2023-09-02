@@ -30,7 +30,7 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 
 from dataProcess.tinystories import Task
 from dataProcess.tinyshakespeare import ShakespeareTask
-from dataProcess.tinyfictions import TaskFiction
+from dataProcess.hpgt import TaskFiction
 # -----------------------------------------------------------------------------
 # I/O
 out_dir = "out/stories15M-llama2-enzh"
