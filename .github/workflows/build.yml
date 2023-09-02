@@ -2,11 +2,7 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - master
-    paths: ['.github/workflows/**', '**/Makefile', '**/*.c', '**/*.h']
-  pull_request:
-    types: [opened, synchronize, reopened]
-    paths: ['**/Makefile', '**/*.c', '**/*.h']
+      - main
 
 env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
